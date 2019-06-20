@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 记录</title>
+  <title>element-ui表单验证动态数组 | 记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录知识点、经验、感悟">
-<meta name="keywords" content="知识点、经验、感悟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="记录">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="最近做项目，使用了element-ui框架，业务中有部分自定义表单，需要动态生成数组元素，验证数组中的值。在此做下记录。 html部分，重要的是props那块的写法:prop=&amp;quot;&amp;#39;optionsValue.&amp;#39;+index+&amp;#39;.value&amp;#39;&amp;quot; 12345678910111213&amp;lt;el-form ref=&amp;quot;optionsForm&amp;qu">
+<meta name="keywords" content="vue element-ui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="element-ui表单验证动态数组">
+<meta property="og:url" content="http://yoursite.com/2019/06/20/element-ui表单验证动态数组/index.html">
 <meta property="og:site_name" content="记录">
-<meta property="og:description" content="记录知识点、经验、感悟">
+<meta property="og:description" content="最近做项目，使用了element-ui框架，业务中有部分自定义表单，需要动态生成数组元素，验证数组中的值。在此做下记录。 html部分，重要的是props那块的写法:prop=&amp;quot;&amp;#39;optionsValue.&amp;#39;+index+&amp;#39;.value&amp;#39;&amp;quot; 12345678910111213&amp;lt;el-form ref=&amp;quot;optionsForm&amp;qu">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-20T13:22:12.657Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记录">
-<meta name="twitter:description" content="记录知识点、经验、感悟">
+<meta name="twitter:title" content="element-ui表单验证动态数组">
+<meta name="twitter:description" content="最近做项目，使用了element-ui框架，业务中有部分自定义表单，需要动态生成数组元素，验证数组中的值。在此做下记录。 html部分，重要的是props那块的写法:prop=&amp;quot;&amp;#39;optionsValue.&amp;#39;+index+&amp;#39;.value&amp;#39;&amp;quot; 12345678910111213&amp;lt;el-form ref=&amp;quot;optionsForm&amp;qu">
   
     <link rel="alternative" href="/atom.xml" title="记录" type="application/atom+xml">
   
@@ -154,36 +155,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-element-ui表单验证动态数组" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/record/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/record/2019/06/20/element-ui表单验证动态数组/" class="archive-article-date">
-  	<time datetime="2019-06-20T12:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/record/2019/06/20/element-ui表单验证动态数组/">element-ui表单验证动态数组</a>
+    <h1 class="article-title" itemprop="name">
+      element-ui表单验证动态数组
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/record/2019/06/20/element-ui表单验证动态数组/" class="archive-article-date">
+  	<time datetime="2019-06-20T12:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做项目，使用了element-ui框架，业务中有部分自定义表单，需要动态生成数组元素，验证数组中的值。在此做下记录。</p>
+<p>html部分，重要的是<code>props</code>那块的写法<code>:prop=&quot;&#39;optionsValue.&#39;+index+&#39;.value&#39;&quot;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form ref=&quot;optionsForm&quot; size=&quot;small&quot; :model=&quot;objectTypeOptions&quot;&gt;</span><br><span class="line">			&lt;div v-for=&quot;(item, index) in objectTypeOptions.optionsValue&quot; :key=&quot;item.id&quot;&gt;</span><br><span class="line">				&lt;el-form-item :prop=&quot;&apos;optionsValue.&apos;+index+&apos;.value&apos;&quot; :rules=&quot;&#123;trigger: &apos;change&apos;, value: objectTypeOptions.optionsValue, validator: validatorOptions&#125;&quot;&gt;</span><br><span class="line">					&lt;el-input v-model=&quot;item.value&quot;&gt;</span><br><span class="line">						&lt;el-button slot=&quot;append&quot; @click=&quot;deleteOption(index)&quot;&gt;删除&lt;/el-button&gt;</span><br><span class="line">					&lt;/el-input&gt;</span><br><span class="line">				&lt;/el-form-item&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;span @click=&quot;addOption&quot;&gt;增加&lt;/span&gt;</span><br><span class="line">      &lt;el-form-item&gt;</span><br><span class="line">        &lt;el-button @click=&quot;submit&quot;&gt;保存&lt;/el-button&gt;</span><br><span class="line">      &lt;/el-form-item&gt;</span><br><span class="line">    &lt;/el-form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>js部分</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    optionsForm: &#123;</span><br><span class="line">      options: <span class="string">''</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    objectTypeOptions: &#123;</span><br><span class="line">      optionsValue: [],</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    validatorOptions(rule, value, callback) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!value) &#123;</span><br><span class="line">        callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'选项不能为空'</span>));</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (rule.value.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.value === value).length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'重复值'</span>));</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        callback();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    addOption() &#123;</span><br><span class="line">      <span class="keyword">this</span>.objectTypeOptions.optionsValue.push(&#123;</span><br><span class="line">        id: <span class="string">'key'</span> + <span class="keyword">this</span>.objectTypeOptions.optionsValue.length,</span><br><span class="line">        value: <span class="string">''</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    deleteOption(index) &#123;</span><br><span class="line">      <span class="keyword">this</span>.objectTypeOptions.optionsValue.splice(index, <span class="number">1</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    submit() &#123;</span><br><span class="line">      <span class="keyword">this</span>.$refs.optionsForm.validate(<span class="function"><span class="params">valid</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (valid) &#123;</span><br><span class="line">          <span class="keyword">this</span>.objectTypeOptions.optionsValue.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.configuration.props.options.push(item.value);</span><br><span class="line">          &#125;);</span><br><span class="line">          <span class="keyword">this</span>.informationValidated = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.informationValidated = <span class="literal">false</span>;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://next.plnkr.co/edit/fSiDv1AeEY6zDxhZ?preview" target="_blank" rel="noopener">线上运行demo</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,84 +223,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/20/element-ui表单验证动态数组/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/record/2019/06/20/记录/" class="archive-article-date">
-  	<time datetime="2019-06-20T08:46:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/record/2019/06/20/记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/record/2019/06/20/记录/">记录</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">感悟</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/record/2019/06/20/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-20T08:04:39.924Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/record/2019/06/20/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -295,8 +345,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
