@@ -156,6 +156,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-node实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/record/2019/06/23/node实战/">node实战</a>
+    </h1>
+  
+
+        
+        <a href="/record/2019/06/23/node实战/" class="archive-article-date">
+  	<time datetime="2019-06-23T13:43:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="第一章-了解Node"><a href="#第一章-了解Node" class="headerlink" title="第一章 了解Node"></a>第一章 了解Node</h3><ul>
+<li><strong>Node</strong>是用来搭建<strong>JavaScript</strong>应用程序的平台，有基于事件和非阻塞的特性。</li>
+<li><strong>V8</strong>被用作<strong>JavaScript</strong>运行时。</li>
+<li><strong>libuv</strong>是提供快速、跨平台、非阻塞<strong>I/O</strong>的本地库。</li>
+<li>被称为核心模块的<strong>Node</strong>标准库很精巧，为<strong>JavaScript</strong>添加了磁盘<strong>I/O</strong>。</li>
+<li><strong>Node</strong>自带了一个调试器和一个依赖管理器(npm)。</li>
+<li><strong>Node</strong>可以用于搭建Web应用程序、命令行工具，甚至桌面程序。</li>
+</ul>
+<h3 id="第二章-Node编程基础"><a href="#第二章-Node编程基础" class="headerlink" title="第二章 Node编程基础"></a>第二章 Node编程基础</h3><ol>
+<li><h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><p><strong>Node</strong>以不同的方式寻找模块，定位到这个模块并加载文件中的内容，查找顺序是核心模块-&gt;当前目录-&gt;node_modules</p>
+</li>
+<li><p>异步编程技术<br><strong>Node</strong>的世界里流行两种响应逻辑管理方式：回调和事件监听。</p>
+<ul>
+<li><p>用回调处理一次性事件<br>回调是一个函数，它被当做参数传给异步函数，用来描述异步操作完成之后要做什么。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.readFile(<span class="string">'./title.json'</span>, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// (err, data) =&gt;&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用事件发射器处理重复事件<br>使用<code>on</code>方法响应事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">const</span> server = net.createServer(<span class="function"><span class="params">socket</span> =&gt;</span> &#123;</span><br><span class="line">  socket.on(<span class="string">'data'</span>, data =&gt; &#123;</span><br><span class="line">    socket.write(data);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+
+<p>响应只应该发生一次的事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">const</span> server = net.createServer(<span class="function"><span class="params">socket</span> =&gt;</span> &#123;</span><br><span class="line">  socket.on(<span class="string">'data'</span>, data =&gt; &#123;</span><br><span class="line">    socket.once(data);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+
+<p>创建一个发射器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"><span class="keyword">const</span> channel = <span class="keyword">new</span> EventEmitter();</span><br><span class="line">channel.on(<span class="string">'join'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'welcome'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  channel.emit(<span class="string">'join'</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/record/2019/06/23/node实战/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Promise详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -547,6 +653,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vue element-ui</a>
