@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="记录">
 <meta property="og:description" content="Promise是什么The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.一个Promise对象代表一个目前还不可用，但在未来某个时间点可以被解析的值。它允许用一种同步的方式编写异步代码。 Promise规范一个">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-23T09:48:31.270Z">
+<meta property="og:updated_time" content="2019-06-29T01:20:16.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise详解">
 <meta name="twitter:description" content="Promise是什么The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.一个Promise对象代表一个目前还不可用，但在未来某个时间点可以被解析的值。它允许用一种同步的方式编写异步代码。 Promise规范一个">
@@ -183,6 +183,7 @@
 <li>rejected:表明操作失败</li>
 </ul>
 <h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>回调地狱</p>
+<h3 id="可以一直then原因"><a href="#可以一直then原因" class="headerlink" title="可以一直then原因"></a>可以一直then原因</h3><p>每个then都会返回一个promise，其状态由then中返回的决定，如果是正常值，则是fulfilled状态，如果抛出错误，就是rejected的状态。</p>
 
       
 
@@ -413,11 +414,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue element-ui</a>
+                <a href="javascript:void(0)" class="js-tag color1">element-ui</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">

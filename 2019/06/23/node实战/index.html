@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="记录">
 <meta property="og:description" content="第一章 了解Node Node是用来搭建JavaScript应用程序的平台，有基于事件和非阻塞的特性。 V8被用作JavaScript运行时。 libuv是提供快速、跨平台、非阻塞I/O的本地库。 被称为核心模块的Node标准库很精巧，为JavaScript添加了磁盘I/O。 Node自带了一个调试器和一个依赖管理器(npm)。 Node可以用于搭建Web应用程序、命令行工具，甚至桌面程序。  第">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-25T00:52:57.406Z">
+<meta property="og:updated_time" content="2019-06-29T01:20:16.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node实战">
 <meta name="twitter:description" content="第一章 了解Node Node是用来搭建JavaScript应用程序的平台，有基于事件和非阻塞的特性。 V8被用作JavaScript运行时。 libuv是提供快速、跨平台、非阻塞I/O的本地库。 被称为核心模块的Node标准库很精巧，为JavaScript添加了磁盘I/O。 Node自带了一个调试器和一个依赖管理器(npm)。 Node可以用于搭建Web应用程序、命令行工具，甚至桌面程序。  第">
@@ -199,13 +199,52 @@
 
 <p>创建一个发射器</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"><span class="keyword">const</span> channel = <span class="keyword">new</span> EventEmitter();</span><br><span class="line">channel.on(<span class="string">'join'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'welcome'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  channel.emit(<span class="string">'join'</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 </li>
 </ul>
+</li>
+<li><p>异步逻辑的顺序化</p>
+<ul>
+<li><p>串行化流程控制<br>完成一个任务后，执行下一个。</p>
+</li>
+<li><p>并行化流程控制</p>
+<p>不需要一个接着一个执行。</p>
+</li>
+<li><p>社区里的工具<br><strong>Async</strong> <strong>Step</strong> <strong>Seq</strong></p>
+</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ul>
+<li><strong>Node</strong>模块可以被组织成可重用的模块</li>
+<li><strong>require</strong>函数是用来加载模块的</li>
+<li><strong>module.exports</strong>和<strong>exports</strong>对象是用来分享模块内的函数和变量的</li>
+<li><strong>package.json</strong>文件是用来指明依赖项的，还要指明将哪个文件作为主文件</li>
+<li>异步逻辑可以用嵌套回调、事件发射器和流程控制工具来控制</li>
+</ul>
+</li>
+</ol>
+<h3 id="第三章-Node-Web程序"><a href="#第三章-Node-Web程序" class="headerlink" title="第三章 Node Web程序"></a>第三章 Node Web程序</h3><ol>
+<li><p><strong>Node Web</strong>程序的结构</p>
+<table>
+<thead>
+<tr>
+<th align="center">package.json</th>
+<th>包含依赖项列表和运行这个程序的命令的文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">public</td>
+<td>静态资源文件夹，CSS和客户端JavaScript都放在这里</td>
+</tr>
+<tr>
+<td align="center">node_modules</td>
+<td>项目的依赖项都装到这里</td>
+</tr>
+<tr>
+<td align="center">放程序代码的目录</td>
+<td>1. app.js或index.js—设置程序的代码<br>2. models–数据库模型<br>3. views–用来渲染页面的模板<br>4. controllers或routes–HTTP请求处理器<br>5. middleware–中间件组件</td>
+</tr>
+</tbody></table>
 </li>
 </ol>
 
@@ -311,6 +350,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/record/2019/06/29/深入理解ES6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/record/2019/06/23/Promise详解/" id="article-nav-older" class="article-nav-link-wrap">
@@ -440,11 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue element-ui</a>
+                <a href="javascript:void(0)" class="js-tag color1">element-ui</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
