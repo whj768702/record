@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>深入理解ES6 | 记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深入理解ES6的笔记记录 块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(window.Re">
+  <meta name="description" content="深入理解ES6的笔记记录 0x01块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(windo">
 <meta name="keywords" content="javascript es6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解ES6">
 <meta property="og:url" content="http://yoursite.com/2019/06/29/深入理解ES6/index.html">
 <meta property="og:site_name" content="记录">
-<meta property="og:description" content="深入理解ES6的笔记记录 块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(window.Re">
+<meta property="og:description" content="深入理解ES6的笔记记录 0x01块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(windo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-29T01:24:03.712Z">
+<meta property="og:updated_time" content="2019-07-01T01:02:26.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解ES6">
-<meta name="twitter:description" content="深入理解ES6的笔记记录 块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(window.Re">
+<meta name="twitter:description" content="深入理解ES6的笔记记录 0x01块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(windo">
   
     <link rel="alternative" href="/atom.xml" title="记录" type="application/atom+xml">
   
@@ -176,7 +176,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>深入理解ES6的笔记记录</p>
-<h3 id="块级绑定"><a href="#块级绑定" class="headerlink" title="块级绑定"></a>块级绑定</h3><h5 id="var"><a href="#var" class="headerlink" title="var"></a>var</h5><ul>
+<h3 id="0x01块级绑定"><a href="#0x01块级绑定" class="headerlink" title="0x01块级绑定"></a>0x01块级绑定</h3><h5 id="var"><a href="#var" class="headerlink" title="var"></a>var</h5><ul>
 <li><p>变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)</p>
 </li>
 <li><p>可以重复声明</p>
@@ -204,7 +204,171 @@
 
 </li>
 </ul>
-<h3 id="字符串与正则表达式"><a href="#字符串与正则表达式" class="headerlink" title="字符串与正则表达式"></a>字符串与正则表达式</h3>
+<h3 id="0x02字符串与正则表达式"><a href="#0x02字符串与正则表达式" class="headerlink" title="0x02字符串与正则表达式"></a>0x02字符串与正则表达式</h3><ul>
+<li>标签化模板</li>
+</ul>
+<h3 id="0x03函数"><a href="#0x03函数" class="headerlink" title="0x03函数"></a>0x03函数</h3><ul>
+<li><p>0x03-1带参数默认值的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">url, timeout=<span class="number">2000</span>, callback=function(</span>) </span>&#123;&#125;)&#123;</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="string">'xxx'</span>);</span><br><span class="line">test(<span class="string">'xxx'</span>, <span class="number">3000</span>);</span><br><span class="line">test(<span class="string">'xxx'</span>, <span class="number">4000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line">test(<span class="string">'xxx'</span>, <span class="literal">undefined</span>); <span class="comment">// 使用默认值timeout</span></span><br><span class="line">test(<span class="string">'xxx'</span>, <span class="literal">null</span>); <span class="comment">// 不使用默认值tiemout，null被认为是有效值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>0x03-2参数默认值对arguments对象的影响</p>
+<ol>
+<li><p>ES5非严格模式下，arguments对象会反映出具名参数的变化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mixArgs</span>(<span class="params">first, second</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(first===<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">console</span>.log(second===<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">  first = <span class="string">'c'</span>;</span><br><span class="line">  second = <span class="string">'d'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(first===<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">console</span>.log(second===<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line">mixArgs(<span class="string">'a'</span>, <span class="string">'b'</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES5严格模式下，arguments不再反映具名参数的变化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mixArgs</span>(<span class="params">first, second</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(first===<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">console</span>.log(second===<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">  first = <span class="string">'c'</span>;</span><br><span class="line">  second = <span class="string">'d'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(first===<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">console</span>.log(second===<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line">mixArgs(<span class="string">'a'</span>, <span class="string">'b'</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6参数默认值的函数中(不管是否在严格模式下)，arguments对象的表现和ES5中<strong>严格模式一致</strong>。始终可以依据<strong>arguments</strong>对象来反映<strong>初始调用状态</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mixArgs</span>(<span class="params">first, second=<span class="string">'b'</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);</span><br><span class="line">  <span class="built_in">console</span>.log(first===<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">console</span>.log(second===<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">  first = <span class="string">'c'</span>;</span><br><span class="line">  second = <span class="string">'d'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(first===<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">console</span>.log(second===<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line">mixArgs(<span class="string">'a'</span>);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>0x03-3参数默认值的暂时性死区</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数默认值的暂时性死区</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">first = second, second</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> first + second</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>, <span class="number">1</span>)) <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="literal">undefined</span>, <span class="number">1</span>)) <span class="comment">// ReferenceError: second is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 1.调用add(1, 1)可表示为</span></span><br><span class="line"><span class="comment">  let first = 1;</span></span><br><span class="line"><span class="comment">  let second = 1;</span></span><br><span class="line"><span class="comment"> 2.调用add(undefined, 1)可表示为</span></span><br><span class="line"><span class="comment">  let first = second; // second存在于暂时性死区内，所以报错</span></span><br><span class="line"><span class="comment">  let second = 1;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>0x03-3不具名参数</p>
+<ol>
+<li><p>ES5中的不具名参数</p>
+<p>通过arguments获取参数。</p>
+</li>
+<li><p>ES6中的剩余参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pick</span>(<span class="params">object, ...keys</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>, len=keys.length; i&lt;len; i++) &#123;</span><br><span class="line">    result[keys[i]] = object[keys[i]];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>一个函数只能由一个剩余参数，并且它必须放在最后。</p>
+</li>
+<li><p>剩余参数不能再对象字面量的setter属性中使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> object = &#123;</span><br><span class="line">  <span class="keyword">set</span> name(...value) &#123;&#125;<span class="comment">//报错</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>0x03-4ES6的名称属性</p>
+<p>ES6中所有函数都有适当的<code>name</code>属性值。</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>name属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function doSomething(){}</td>
+<td>doSomething.name: doSomething</td>
+</tr>
+<tr>
+<td>const doAnotherThing = function () {}</td>
+<td>doAnotherThing.name: doAnotherThing</td>
+</tr>
+<tr>
+<td>const doSomething = function doSomethingElse(){}</td>
+<td>doSomething.name: doSomethingElse</td>
+</tr>
+<tr>
+<td>const person = {<br>  get firstName () {<br>    return ‘x’;<br>  },<br>  set firstName (value) {<br>    this.firstName = value;<br>  },<br>  sayName: function() {}<br>};</td>
+<td>Person.sayName.name: sayName<br>const descriptor = Object.getOwnPropertyDescriptor(person, ‘firstName’);<br>descriptor.get.name: get firstName<br>descriptor.set.name: set firstName</td>
+</tr>
+<tr>
+<td>const printSomething = function () {}</td>
+<td>printSomething.bind().name: bound printSomething</td>
+</tr>
+<tr>
+<td>console.log((new Function()).name);</td>
+<td>anonymous</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>0x03-5明确函数的作用<br>JS 为函数提供了两个不同的内部方法： [[Call]] 与 [[Construct]] 。当函数未使用 new</p>
+<p>进行调用时， [[call]] 方法会被执行，运行的是代码中显示的函数体。而当函数使用 new</p>
+<p>进行调用时， [[Construct]] 方法则会被执行，负责创建一个被称为新目标的新的对象，并</p>
+<p>且使用该新目标作为 this 去执行函数体。</p>
+<ul>
+<li><p>ES5中判断函数如何被调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Person) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'you must use new with Person'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> Person(<span class="string">'hello'</span>);</span><br><span class="line"><span class="keyword">const</span> notAPerson = Person(<span class="string">'world'</span>); <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+
+<p>缺陷：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> Person(<span class="string">'hello'</span>);</span><br><span class="line"><span class="keyword">const</span> notAPerson = Person.call(person. <span class="string">'world'</span>);<span class="comment">// 不报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ES6中判断</p>
+<p>为了解决缺陷问题，引入了<code>new.target</code>元属性。当函数的<code>[[Construct]]</code>被调用是，<code>new.target</code>会被填入<code>new</code>运算符的作用目标，该目标通常是新创建的对象实例的构造器，并且会成为函数体内部的<code>this</code>值。<br>当<code>[[Call]]</code>被执行时，<code>new.target</code>的值则会是<code>undefined</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">new</span>.target !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'you must use new with Person'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> Person(<span class="string">'hello'</span>);</span><br><span class="line"><span class="keyword">const</span> notAPerson = Person.call(person, <span class="string">'world'</span>);<span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>0x03-6箭头函数</p>
+<ol>
+<li>没有<code>this</code>绑定</li>
+<li>没有<code>arguments</code>绑定</li>
+<li>没有<code>new.target</code>绑定</li>
+<li>没有<code>super</code>绑定</li>
+<li>没有原型</li>
+</ol>
+</li>
+</ul>
+<h3 id="0x04扩展的对象功能"><a href="#0x04扩展的对象功能" class="headerlink" title="0x04扩展的对象功能"></a>0x04扩展的对象功能</h3><ul>
+<li><p>0x04-1对象类别</p>
+</li>
+<li><p>0x04-2对象字面量语法的扩展</p>
+<ol>
+<li><p>属性初始化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name,</span><br><span class="line">    age</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法简写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'w'</span>,</span><br><span class="line">  sayName() &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需计算属性名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> suffix = <span class="string">'name'</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  [<span class="string">'first'</span> + suffix]: <span class="string">'w'</span>,</span><br><span class="line">  [<span class="string">'last'</span> + suffix]: <span class="string">'h'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>0x04-3新的方法</p>
+<ol>
+<li>Object.is()<br>弥补严格相等运算符残留的怪异点。接受两个参数，二者类型相同且值相同时返回true。</li>
+<li>Object.assgin()<br>The <strong>Object.assign()</strong> method is used to copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object.</li>
+</ol>
+</li>
+<li><p>0x04-4重复的对象字面量属性</p>
+<p>以下代码在ES5严格模式中是语法错误。在ES6中，移除了重复属性的检查，无论什么模式下。存在重复属性时，后面的属性值会成为该属性的实际值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">'1'</span>,</span><br><span class="line">  name: <span class="string">'2'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>0x04-5自有属性的枚举顺序</p>
+<ol>
+<li>所有的数字类型键，按升序排列。</li>
+<li>所有的字符串类型键，按被添加到对象的顺序排列。</li>
+<li>所有的符号类型键，按添加到对象的顺序排列。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">  c: <span class="number">1</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">1</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.d = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(obj).join()); <span class="comment">// 0,1,2,a,c,b,d</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>0x04-6更强大的原型</p>
+<ol>
+<li><p>修改对象的原型<code>Object.setPrototypeOf()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  getGreeting() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'hello'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> dog = &#123;</span><br><span class="line">  getGreeting() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'woof'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> friend = <span class="built_in">Object</span>.create(person); </span><br><span class="line"><span class="built_in">console</span>.log(friend.getGreeting()); <span class="comment">// hello</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(friend) === person); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(friend, dog);</span><br><span class="line"><span class="built_in">console</span>.log(friend.getGreeting()); <span class="comment">// woof</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(friend) === dog); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>super</code>引用的简单原型访问<br>使用<code>super</code>引用来调用对象原型上的任何方法，这个引用只能位于<strong>简写</strong>的方法之内。</p>
+</li>
+</ol>
+</li>
+<li><p>0x04-7正式的”方法”定义</p>
+</li>
+</ul>
+<h3 id="0x05解构"><a href="#0x05解构" class="headerlink" title="0x05解构"></a>0x05解构</h3>
       
 
       
@@ -457,11 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
