@@ -450,7 +450,65 @@
 <li><p>0x04-7正式的”方法”定义</p>
 </li>
 </ul>
-<h3 id="0x05解构"><a href="#0x05解构" class="headerlink" title="0x05解构"></a>0x05解构</h3>
+<h3 id="0x05解构"><a href="#0x05解构" class="headerlink" title="0x05解构"></a>0x05解构</h3><ul>
+<li><p>0x05-1对象解构</p>
+<ol>
+<li><p>解构赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> node = &#123;</span><br><span class="line">  type: <span class="string">'hello'</span>,</span><br><span class="line">  name: <span class="string">'w'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> type = <span class="string">'world'</span>;</span><br><span class="line"><span class="keyword">let</span> name = <span class="number">1</span>;</span><br><span class="line">(&#123;type, name&#125; = node); <span class="comment">//用圆括号包裹解构赋值语句，暴露的花括号会被解析为代码块语句。</span></span><br><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputInfo</span>(<span class="params">value</span>) </span>&#123;&#125;</span><br><span class="line">outputInfo(&#123;type, name&#125;=node);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认值</p>
+<p>解构对象中不存在的同名属性时，属性会被赋值为<code>undefined</code>。可指定默认值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> node = &#123;</span><br><span class="line">  type : <span class="number">1</span>,</span><br><span class="line">  name: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> &#123;type, name, value&#125; = node;</span><br><span class="line"><span class="comment">// type:1 name:2 value:undefined</span></span><br><span class="line"><span class="keyword">let</span> &#123;type, name, value=<span class="number">3</span>&#125; = node;</span><br><span class="line"><span class="comment">// type:1 name:2, value:true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋值给不同的本地变量名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> node = &#123;</span><br><span class="line">  type: <span class="number">1</span>,</span><br><span class="line">  name: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">type</span>: localType, <span class="attr">name</span>: localName&#125; = node;</span><br><span class="line"><span class="comment">// localType: 1, localName: 2</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">type</span>: localType, <span class="attr">name</span>: localName, <span class="attr">value</span>: localValue=<span class="number">3</span>&#125; = node;</span><br><span class="line"><span class="comment">// localType: 1, localName: 2, localValue: true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>嵌套对象的解构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> node = &#123;</span><br><span class="line">	type: <span class="string">"Identifier"</span>,</span><br><span class="line">	name: <span class="string">"foo"</span>,</span><br><span class="line">	loc: &#123;</span><br><span class="line">		start: &#123;</span><br><span class="line">			line: <span class="number">1</span>,</span><br><span class="line">			column: <span class="number">1</span></span><br><span class="line">		&#125;,</span><br><span class="line">		end: &#123;</span><br><span class="line">			line: <span class="number">1</span>,</span><br><span class="line">			column: <span class="number">4</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">loc</span>: &#123; start &#125;&#125; = node;</span><br><span class="line"><span class="built_in">console</span>.log(start.line); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(start.column); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>0x05-2数组解构</p>
+<ol>
+<li><p>数组解构语法看起来和对象解构很相似，只是将对象字面量替换成了数组字面量。解构作用在数组内部的位置上，而不是作用在对象的具名属性上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"><span class="keyword">let</span> [firstColor, secondColor] = colors;</span><br><span class="line"><span class="comment">// firstColor: red, secondColor: green</span></span><br><span class="line"><span class="keyword">let</span> [,,thirdColor] = colors;</span><br><span class="line"><span class="comment">// thirdColor: blue</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认值</p>
+</li>
+<li><p>嵌套解构</p>
+</li>
+<li><p>剩余项</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"><span class="keyword">let</span> [firstColor, ...restColors] = colors;</span><br><span class="line"><span class="comment">// firstColor: red, restColors: ['green', 'blue']</span></span><br></pre></td></tr></table></figure>
+
+<p>ps: 用来克隆数组</p>
+<p><code>let [...clonedColors] = colors;</code></p>
+</li>
+</ol>
+</li>
+<li><p>0x05-3混合解构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> node = &#123;</span><br><span class="line">	type: <span class="string">"Identifier"</span>,</span><br><span class="line">	name: <span class="string">"foo"</span>,</span><br><span class="line">	loc: &#123;</span><br><span class="line">		start: &#123;</span><br><span class="line">			line: <span class="number">1</span>,</span><br><span class="line">			column: <span class="number">1</span></span><br><span class="line">		&#125;,</span><br><span class="line">		end: &#123;</span><br><span class="line">			line: <span class="number">1</span>,</span><br><span class="line">			column: <span class="number">4</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	range: [<span class="number">0</span>, <span class="number">3</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;</span><br><span class="line">	loc: &#123; start &#125;,</span><br><span class="line">	range: [ startIndex ]</span><br><span class="line">&#125; = node;</span><br><span class="line"><span class="built_in">console</span>.log(start.line); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(start.column); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(startIndex); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>0x05-4参数解构</p>
+<ol>
+<li><p>解构的参数是必需的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, &#123; secure, path, domain, expires &#125;</span>) </span>&#123;&#125;</span><br><span class="line">setCookie(<span class="string">'type'</span>, <span class="string">'js'</span>); <span class="comment">//报错</span></span><br><span class="line"><span class="comment">// 改正方式1</span></span><br><span class="line">setCookie(<span class="string">'type'</span>, <span class="string">'js'</span>, &#123;&#125;); <span class="comment">// 不报错</span></span><br><span class="line"><span class="comment">// 改正方式2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, &#123; secure, path, domain, expires &#125; = &#123;&#125;</span>) </span>&#123;&#125;</span><br><span class="line">setCookie(<span class="string">'type'</span>, <span class="string">'js'</span>); <span class="comment">// 不报错</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数解构的默认值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value,</span></span></span><br><span class="line"><span class="function"><span class="params">&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">secure = false,</span></span></span><br><span class="line"><span class="function"><span class="params">path = <span class="string">"/"</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">domain = <span class="string">"example.com"</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">expires = new Date(Date.now(</span>) + 360000000)</span></span><br><span class="line"><span class="function">&#125; = </span>&#123;&#125;</span><br><span class="line">) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="0x06符号与符号属性"><a href="#0x06符号与符号属性" class="headerlink" title="0x06符号与符号属性"></a>0x06符号与符号属性</h3><ul>
+<li>0x06-1创建符号值</li>
+<li>0x06-2使用符号值</li>
+<li>0x06-3共享符号值</li>
+<li>0x06-4符号值的转换</li>
+<li>0x06-5检索符号属性</li>
+<li>0x06-6使用知名符号暴露内部的方法</li>
+</ul>
+
       
 
       
@@ -1046,6 +1104,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1055,14 +1121,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">javascript es6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
