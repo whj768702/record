@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="记录">
 <meta property="og:description" content="深入理解ES6的笔记记录 0x01块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(windo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-03T00:59:00.843Z">
+<meta property="og:updated_time" content="2019-07-04T01:20:40.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解ES6">
 <meta name="twitter:description" content="深入理解ES6的笔记记录 0x01块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(windo">
@@ -419,12 +419,93 @@
 </li>
 </ul>
 <h3 id="0x06符号与符号属性"><a href="#0x06符号与符号属性" class="headerlink" title="0x06符号与符号属性"></a>0x06符号与符号属性</h3><ul>
-<li>0x06-1创建符号值</li>
-<li>0x06-2使用符号值</li>
-<li>0x06-3共享符号值</li>
-<li>0x06-4符号值的转换</li>
-<li>0x06-5检索符号属性</li>
-<li>0x06-6使用知名符号暴露内部的方法</li>
+<li><p>0x06-1创建符号值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstName = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> person = &#123;&#125;;</span><br><span class="line">person[firstName] = <span class="string">'hello'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person[firstName]); <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>0x06-2使用符号值</p>
+</li>
+<li><p>0x06-3共享符号值<br>创建共享符号值，使用<code>Symbol.for()</code>方法，参数为字符串。首先搜索全局符号注册表，存在则返回，不存在则创建一个新的符号值，并使用该键值将其记录到全局符号注册表中。</p>
+<p><code>Symbol.keyFor()</code>：在全局符号注册表中根据符号值检索对应的键值.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="built_in">Symbol</span>.for(<span class="string">'uid'</span>);</span><br><span class="line"><span class="keyword">let</span> uid2 = <span class="built_in">Symbol</span>.for(<span class="string">'uid'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Symbol</span>.keyFor(uid2)); <span class="comment">// 'uid'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>0x06-4符号值的转换<br>可使用<code>String</code>转换.<code>let uid = Symbol.for(&#39;uid&#39;);desc = String(uid);</code></p>
+</li>
+<li><p>0x06-5检索符号属性</p>
+<table>
+<thead>
+<tr>
+<th align="center">接口</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>Object.keys()</code></td>
+<td>返回对象所有的可枚举属性名称</td>
+</tr>
+<tr>
+<td align="center"><code>Object.getOwnPropertyNames()</code></td>
+<td>返回对象所有属性名称而无视其是否可枚举</td>
+</tr>
+<tr>
+<td align="center"><code>Object.getOwnPropertySymbols()</code></td>
+<td>返回对象自有属性名中的符号值</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>0x06-6使用知名符号暴露内部的方法</p>
+<table>
+<thead>
+<tr>
+<th align="center">内部方法</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>Symbol.hasInstance</code></td>
+<td align="center">判断对象继承关系</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.isConcatSpreadable</code></td>
+<td align="center">一个布尔类型值，在集合对象作为参数传递给<code>Array.prototype.concat()</code>方法时，指示是否要将该集合的元素扁平化</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.iterator</code></td>
+<td align="center">返回迭代器的一个方法</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.match</code></td>
+<td align="center">供<code>String.prototype.match()</code>函数使用的一个方法，用于比较字符串</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.replace</code></td>
+<td align="center">供<code>String.prototype.replace()</code>函数使用的一个方法，用于替换子字符串</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.search</code></td>
+<td align="center">供<code>String.prototype.search()</code>函数使用的一个方法，用于定位子字符串</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.species</code></td>
+<td align="center">用于产生派生对象的构造器</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.split</code></td>
+<td align="center">供<code>String.prototype.split()</code>函数使用的一个方法，用于分割字符串</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.toPrimitive</code></td>
+<td align="center">返回对象反映的基本类型值的一个方法</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.toStringTag</code></td>
+<td align="center">供<code>String.prototype.toString()</code>函数使用的一个方法，用于创建对象描述信息</td>
+</tr>
+<tr>
+<td align="center"><code>Symbol.unscopables</code></td>
+<td align="center">一个对象，该对象的属性只是了哪些属性名不允许被包含在<code>with</code>语句中</td>
+</tr>
+</tbody></table>
+</li>
 </ul>
 
       
@@ -667,14 +748,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -688,6 +761,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
             
             <div class="clearfix"></div>
