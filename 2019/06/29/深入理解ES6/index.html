@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="记录">
 <meta property="og:description" content="深入理解ES6的笔记记录 0x01块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(windo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-08T00:50:28.097Z">
+<meta property="og:updated_time" content="2019-07-09T00:55:42.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解ES6">
 <meta name="twitter:description" content="深入理解ES6的笔记记录 0x01块级绑定var 变量提升，无论其实际声明在何处，都会被视为声明于所在函数的顶部(如果声明不在任意函数内，则视为在全局作用域的顶部)  可以重复声明  当在全局作用域上使用var时，它会创建一个新的全局变量，并成为全局对象(在浏览器中是window)的一个属性，会覆盖已有的全局属性. 123var RegExp = &apos;hello&apos;;console.log(windo">
@@ -621,7 +621,17 @@
 </tbody></table>
 </li>
 </ul>
-<p>###0x08迭代器与生成器</p>
+<h3 id="0x08迭代器与生成器"><a href="#0x08迭代器与生成器" class="headerlink" title="0x08迭代器与生成器"></a>0x08迭代器与生成器</h3><ul>
+<li><p>0x08-1迭代器<br>迭代器是被设计专用于迭代的对象，带有特定接口。所有的迭代器对象拥有<code>next()</code>方法，会返回一个结果对象，该对象有两个属性:<code>value</code>和<code>done</code></p>
+</li>
+<li><p>0x08-2生成器<br>生成器是能返回一个迭代器的函数。</p>
+</li>
+<li><p>0x08-3创建可迭代对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> collection = &#123;</span><br><span class="line">  items: [],</span><br><span class="line">  *[<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> <span class="keyword">this</span>.items) &#123;</span><br><span class="line">      <span class="keyword">yield</span> item;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>###0x09JS的类</p>
 
       
 
@@ -863,14 +873,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -879,11 +881,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">javascript es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
               </li>
             
             <div class="clearfix"></div>
